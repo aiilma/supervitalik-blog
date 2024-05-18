@@ -49,7 +49,7 @@ function lines() {
     let duration = Math.random() * 15
     let e = document.createElement('div')
     e.setAttribute('class', 'circle')
-    let root = document.getElementById("animationBg")
+    let root = document.getElementById("animationBg")!
     root.appendChild(e)
     e.style.width = 2 + sizeW + 'px'
     e.style.left = Math.random() * +innerWidth + 'px'

@@ -36,7 +36,7 @@ const skillsColumns = [
         title: 'Тип',
         dataIndex: 'type',
         key: 'type',
-        render: (_, row) => (
+        render: (_: typeof skillsData[number]["type"], row: typeof skillsData[number]) => (
             <Tag color={row.color}>
                 {row.tag}
             </Tag>
@@ -52,9 +52,9 @@ const skillsColumns = [
 const achievementsColumns = [
     {
         title: 'Тип',
-        dataIndex: 'type',
-        key: 'type',
-        render: (_, row) => (
+        dataIndex: 'tag',
+        key: 'tag',
+        render: (_: typeof achievementsData[number]["tag"], row: typeof achievementsData[number]) => (
             <Tag color={row.color}>
                 {row.tag}
             </Tag>
@@ -217,7 +217,7 @@ const achievementsData = [
     },
 ];
 
-export function PageLayout(props) {
+export function PageLayout() {
     const {token} = useToken();
 
     return (
