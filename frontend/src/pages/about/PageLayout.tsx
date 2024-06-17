@@ -17,8 +17,9 @@ import {
 } from "antd";
 import {SyncOutlined} from '@ant-design/icons';
 import {ReactTyped} from "react-typed";
+import avatar_asset from '../../assets/avatar.jpeg'
 
-const { Content} = Layout;
+const {Content} = Layout;
 
 const {useToken} = theme;
 
@@ -224,7 +225,7 @@ export function PageLayout() {
         <Layout style={{minHeight: '100vh', overflow: "hidden"}}>
             <Content style={contentStyle}>
                 <Row justify={"center"}>
-                    <Col span={12} style={{
+                    <Col xs={24} md={12} style={{
                         border: `2px solid ${token.colorBorder}`,
                         borderRadius: token.borderRadius,
                         padding: token.padding,
@@ -233,32 +234,36 @@ export function PageLayout() {
                     }}>
                         <Row gutter={16} justify={"space-around"}>
                             <Col>
-                                <Badge count="Опыт: 3 года 6 месяцев" offset={[-100, 195]}
-                                       color={"gray"}
-                                       style={{color: token.colorWhite, fontWeight: token.fontWeightStrong}}>
-                                    <Card
-                                        cover={<Image
-                                            width={200}
-                                            preview={false}
-                                            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                                        />}
-                                        style={{background: token.Card?.actionsBg}}
-                                        bordered={false}
-                                        actions={[<Tag color="blue"><Button type="link" href={"https://t.me/aiilmaxd"} target={"_blank"}>
+                                <Card
+                                    cover={
+                                        <Badge count="Опыт: 3 года 6 месяцев" offset={[-75, 195]}
+                                               color={"gray"}
+                                               style={{color: token.colorWhite, fontWeight: token.fontWeightStrong}}>
+                                            <Image
+                                                // width={200}
+                                                height={200}
+                                                preview={false}
+                                                src={avatar_asset}
+                                            />
+                                        </Badge>
+                                    }
+                                    style={{background: token.Card?.actionsBg}}
+                                    bordered={false}
+                                    actions={[<Tag color="blue">
+                                        <Button type="link" href={"https://t.me/aiilmaxd"} target={"_blank"}>
                                             Telegram
-                                        </Button></Tag>]}
-                                        styles={{
-                                            body: {
-                                                padding:0
-                                            }
-                                        }}
-                                    >
-                                    </Card>
-
-                                </Badge>
+                                        </Button>
+                                    </Tag>]}
+                                    styles={{
+                                        body: {
+                                            padding: 0
+                                        }
+                                    }}
+                                >
+                                </Card>
                             </Col>
-                            <Col  span={16}>
-                                <Typography.Title level={3} underline>
+                            <Col span={18}>
+                                <Typography.Title level={3} underline style={{padding: 16}}>
                                     Обо мне
                                 </Typography.Title>
                                 <Typography.Paragraph>
@@ -286,14 +291,14 @@ export function PageLayout() {
                         <Row justify={"center"}>
                             <Col span={24}>
                                 <Flex vertical gap={16}>
-                                    <Typography.Title level={3} underline>
+                                    <Typography.Title level={3} underline style={{padding: 16}}>
                                         Образование и Коммерция
                                     </Typography.Title>
                                     <Timeline
                                         mode="right"
                                         items={[
                                             {
-                                                label: <>2020 - <SyncOutlined spin /></>,
+                                                label: <>2020 - <SyncOutlined spin/></>,
                                                 color: 'yellow',
                                                 // dot: <ClockCircleOutlined/>,
                                                 children: 'Middle FrontEnd-разработчик, OOO BS',
@@ -340,18 +345,19 @@ export function PageLayout() {
                             <Col span={24}>
                                 <Flex vertical gap={16}>
                                     <Row justify={"center"} gutter={16}>
-                                        <Col span={12}>
-                                            <Typography.Title level={3} underline>
+                                        <Col xs={24} md={12}>
+                                            <Typography.Title level={3} underline style={{padding: 16}}>
                                                 Навыки
                                             </Typography.Title>
                                             <Table columns={skillsColumns} dataSource={skillsData} pagination={false}
                                                    size={"small"}/>
                                         </Col>
-                                        <Col span={12}>
-                                            <Typography.Title level={3} underline>
+                                        <Col xs={24} md={12}>
+                                            <Typography.Title level={3} underline style={{padding: 16}}>
                                                 Достижения
                                             </Typography.Title>
-                                            <Table columns={achievementsColumns} dataSource={achievementsData} pagination={false}
+                                            <Table columns={achievementsColumns} dataSource={achievementsData}
+                                                   pagination={false}
                                                    size={"small"}/>
                                             {/*<List*/}
                                             {/*    size="small"*/}
@@ -366,7 +372,7 @@ export function PageLayout() {
                     </Col>
                 </Row>
             </Content>
-            <div id={"animationBg"} />
+            <div id={"animationBg"}/>
         </Layout>
     );
 }
